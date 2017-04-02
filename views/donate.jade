@@ -1,0 +1,24 @@
+extends layout
+
+block content
+ h2.page-header Donate Blood
+ p Please select the type and amount of blood you want to donate.
+ if errors
+  each error, i in errors
+   div.alert.alert-danger #{error.msg}
+ form(method='post', action='/blood/donate')
+  .form-group
+   label Blood Type
+   select.form-control(name='group')
+    option O +
+    option O -
+    option A +
+    option A -
+    option B +
+    option B -
+    option AB +
+    option AB -
+  .form-group
+   label Amount of Blood
+   input.form-control(name='amount', type='text', placeholder='Enter Blood Amount')
+  input.btn.btn-primary(type='submit', name='submit',value='Donate')

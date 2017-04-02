@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1 Blood Bank Members Area
+  p Welcome to the blood bank's members area
+
+  .row(style='text-align:center;')
+      .col-md-4
+        a(href='/findblood')
+          button.btn.btn-default.btn-lg.btn-info(type='button', name='findblood', style='margin-top:50px;') Find Blood Sample
+      .col-md-4
+        a(href='/donate')
+          button.btn.btn-default.btn-lg.btn-info(type='button', style='margin-top:50px;') Donate Blood Sample
+      .col-md-4
+        a(href='/details')
+          button.btn.btn-default.btn-lg.btn-info(type='button', style='margin-top:50px;', onclick='move_to_details()') View Personal Details

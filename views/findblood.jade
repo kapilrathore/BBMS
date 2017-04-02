@@ -1,0 +1,45 @@
+extends layout
+
+block content
+ h2.page-header Find Blood Details
+ p(style='margin-bottom:20px;') You can search for blood by Type or based on your Location
+ if errors
+  each error, i in errors
+   div.alert.alert-danger #{error.msg}
+ form(method='post', action='/blood/findblood')
+  .form-group
+    label.inline
+     label Blood Group
+     select.form-control(name='group')
+      option O +
+      option O -
+      option A +
+      option A -
+      option B +
+      option B -
+      option AB +
+      option AB -
+    label.inline(style='margin-left:30px;')
+      label
+        | Location
+        input.form-control(name='location', type='text', placeholder='Enter Location')
+
+    input.btn.btn-primary(type='submit', name='submit',value='Find Blood Sample', style='margin-left:30px;')
+
+  .table-responsive
+  table.table.table-striped
+    thead
+      tr
+        th Blood Group
+        th Amount
+        th Location
+        th Username
+        th Mobile
+    tbody
+      each blood in bloods
+        tr
+          td #{blood.group}
+          td #{blood.amount}
+          td #{blood.location}
+          td #{blood.username}
+          td #{blood.mobile}
